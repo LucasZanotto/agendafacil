@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #6366f1;
+  --color-brand-dark: #4f46e5;
+  --color-ink: #0f172a;
+  --color-muted: #64748b;
+  --color-line: #e2e8f0;
+  --color-canvas: #f8fafc;
+}
+
+@layer base {
+  body { @apply bg-canvas text-ink antialiased; }
+  input, select, textarea { @apply text-base sm:text-sm; }
+}
+
+@utility input { @apply w-full rounded-lg border border-line bg-white px-3 py-2 outline-none transition focus:border-brand focus:ring-4 focus:ring-brand/10; }
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition disabled:opacity-50; }
+@utility btn-primary { @apply btn bg-brand text-white hover:bg-brand-dark; }
+@utility btn-ghost { @apply btn border border-line bg-white text-ink hover:bg-canvas; }
+@utility card { @apply rounded-2xl border border-line bg-white; }
+@utility label { @apply grid gap-1.5 text-sm font-medium; }
