@@ -2,7 +2,7 @@
 
 SaaS de agendamentos para pequenos negócios (salões, barbearias, clínicas e estúdios): agenda, clientes, serviços e faturamento num painel só, com contas separadas por negócio.
 
-**🔗 Demo:** _adicione o link aqui depois do deploy_. Para testar, clique em **"Testar com conta demo"**.
+**🔗 Demo:** [agendafacil-beta-murex.vercel.app](https://agendafacil-beta-murex.vercel.app). Para testar, clique em **"Testar com conta demo"**.
 
 ![AgendaFácil](docs/preview.jpg)
 

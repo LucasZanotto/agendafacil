@@ -15,10 +15,15 @@ const globalForDb = globalThis as unknown as { dbPromise?: Promise<DB> }
  */
 async function connect(): Promise<DB> {
   let db: DB
-  if (process.env.DATABASE_URL) {
+  // a integração Neon da Vercel cria DATABASE_URL (e também POSTGRES_URL)
+  const url = process.env.DATABASE_URL || process.env.POSTGRES_URL
+  if (!url && process.env.VERCEL) {
+    throw new Error('Banco não configurado: conecte um banco Neon ao projeto (aba Storage) e faça Redeploy.')
+  }
+  if (url) {
     const { Pool } = await import('pg')
     const { drizzle } = await import('drizzle-orm/node-postgres')
-    const pool = new Pool({ connectionString: process.env.DATABASE_URL, max: 5 })
+    const pool = new Pool({ connectionString: url, max: 5 })
     db = drizzle(pool, { schema }) as unknown as DB
     await pool.query(schema.DDL)
   } else {
